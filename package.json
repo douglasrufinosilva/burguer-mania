@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "debug": "nodemon --inspect"
   },
   "dependencies": {
     "express": "^4.21.2"
