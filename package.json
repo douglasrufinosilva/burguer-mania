@@ -1,16 +1,16 @@
 {
   "name": "burguer-mania",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": ""
+    "dev": "nodemon"
   },
   "dependencies": {
     "express": "^4.21.2"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sucrase": "^3.35.0"
   }
 }
