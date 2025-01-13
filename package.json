@@ -1,8 +1,14 @@
 {
   "name": "burguer-mania",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
+  "scripts": {
+    "dev": ""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true
