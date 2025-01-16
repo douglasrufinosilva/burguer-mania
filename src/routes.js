@@ -20,6 +20,7 @@ routes.post('/users', userController.store)
 routes.post('/session', sessionController.store)
 
 // rota de produtos
+routes.get('/products', productController.index)
 routes.post('/products', upload.single('file'), productController.store)
 
 export default routes

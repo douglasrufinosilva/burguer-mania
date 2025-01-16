@@ -1,4 +1,5 @@
 import * as Yup from 'yup'
+import Product from '../models/Products'
 
 class ProductController {
   async store(request, response) {
@@ -8,21 +9,29 @@ class ProductController {
       category: Yup.string().required(),
     })
 
-    const { name, price, category } = request.body
-
     try {
       await schema.validateSync(request.body, { abortEarly: false })
     } catch (error) {
       return response.status(400).json(error.errors)
     }
 
-    const newProduct = {
+    const { filename: path } = request.file
+    const { name, price, category } = request.body
+
+    const newProduct = await Product.create({
       name,
       price,
       category,
-    }
+      path,
+    })
 
     return response.status(201).json(newProduct)
+  }
+
+  async index(request, response) {
+    const products = await Product.findAll()
+
+    return response.status(200).json(products)
   }
 }
 
