@@ -6,6 +6,8 @@ import UserController from './app/controllers/UserController'
 import SessionController from './app/controllers/SessionController'
 import ProductController from './app/controllers/ProductController'
 
+import authMiddleware from './app/middlewares/auth'
+
 const userController = new UserController()
 const sessionController = new SessionController()
 const productController = new ProductController()
@@ -20,7 +22,7 @@ routes.post('/users', userController.store)
 routes.post('/session', sessionController.store)
 
 // rota de produtos
-routes.get('/products', productController.index)
+routes.get('/products', authMiddleware, productController.index)
 routes.post('/products', upload.single('file'), productController.store)
 
 export default routes
