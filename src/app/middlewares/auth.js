@@ -20,7 +20,7 @@ export default (request, response, next) => {
 
       request.userId = decoded.id
 
-      next()
+      return next()
     })
   } catch (error) {
     return response.status(401).json({
